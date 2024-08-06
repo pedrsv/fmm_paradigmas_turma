@@ -202,8 +202,6 @@ void pesquisar(tipo_turma *turma){
 }
 
 
-
-
 void cad_p1(tipo_turma *turma){
 	char mat_pesq[7];
 	int achou = 0;
@@ -225,6 +223,37 @@ void cad_p1(tipo_turma *turma){
 			turma->alunos[i].p1 = p1;
 			achou = 1;
 			printf("\n\n         NOTA P1 CADASTRADA COM SUCESSO !");
+			break;
+		}
+	}
+
+	if(!achou)
+		printf("\n\n ALUNO COM MATRÍCULA %s NÃO ENCONTRADO!", mat_pesq)	;	
+		
+}
+
+
+void cad_p2(tipo_turma *turma){
+	char mat_pesq[7];
+	int achou = 0;
+	float p2;
+	system("cls");
+	printf("\n\n**********************************************************");		
+	printf("\n*                       CADASTRANDO P2                   *");	
+	printf("\n**********************************************************");
+	fflush(stdin);
+
+	printf("\n          Digite a matrícula: ");
+	gets(mat_pesq);
+
+	for(int i = 0 ; i < turma->total_al; i++){
+
+		if(!strcmpi(mat_pesq , turma->alunos[i].mat)){
+			printf("\n    DIGITE A NOTA P2: ");
+			scanf("%f", &p2);
+			turma->alunos[i].p2 = p2;
+			achou = 1;
+			printf("\n\n         NOTA P2 CADASTRADA COM SUCESSO !");
 			break;
 		}
 	}
@@ -259,7 +288,7 @@ void cadastrar_nota(tipo_turma *turma){
 				case 0: return;
 				case 1: cad_p1(turma);
 		    			break;
-				case 2: //cad_p2(turma);
+				case 2: cad_p2(turma);
 		    			break;
 				case 3: //cad_p1_p2(turma);
 		    			break;
