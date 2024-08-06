@@ -244,9 +244,9 @@ int main() {
 	    			break;
 	    	case 3: pesquisar(&turma);
 	    			break;
-	    	case 4: //casdatrar_nota(&turma);
+	    	case 4: //cadastrar_nota(&turma);
 	    			break;		
-	    	case 5: //casdatrar(&turma);
+	    	case 5: //cadastrar(&turma);
 	    			break;			
 	    	default: printf("Oção inválida");
 		}
