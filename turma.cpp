@@ -200,7 +200,43 @@ void pesquisar(tipo_turma *turma){
 	voltar();	    
 	}
 }
-	
+
+
+void cadastrar_nota(tipo_turma *turma){
+	while(1){
+		system("cls");
+		printf("\n\n**********************************************************");
+		// verifica se está vazia
+		if(turma->total_al == 0 ){		
+			printf("\n\n       IMPOSSÍVEL CADASTRAR NOTA!  MOTIVO: A turma está vazia.");				
+			return;
+		}
+		int op;
+
+		printf("\n\n          ==== MENU DE CADASTRO DE NOTA ====");
+		    printf("\n         [1] - Cadastrar P1: ");
+		    printf("\n         [2] - Cadastrar P2: ");
+		    printf("\n         [3] - Cadastrar P1 e P2: ");
+		    printf("\n         [0] - Sair do cadastro de nota");
+
+		    printf("\n\n          Digite sua opção: ");
+		    scanf("%d", &op);
+
+		    switch(op){
+				case 0: return;
+				case 1: //cad_p1(turma);
+		    			break;
+				case 2: //cad_p2(turma);
+		    			break;
+				case 3: //cad_p1_p2(turma);
+		    			break;
+
+		    	default: printf("Opção inválida");
+			}
+	voltar();	    
+	}
+}
+
 
 int main() { 
     setlocale(LC_ALL, "");
@@ -244,7 +280,7 @@ int main() {
 	    			break;
 	    	case 3: pesquisar(&turma);
 	    			break;
-	    	case 4: //cadastrar_nota(&turma);
+	    	case 4: cadastrar_nota(&turma);
 	    			break;		
 	    	case 5: //cadastrar(&turma);
 	    			break;			
