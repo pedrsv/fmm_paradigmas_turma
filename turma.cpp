@@ -15,7 +15,7 @@ struct tipo_aluno{
 };
 
 struct tipo_turma{	
-	char nome[8];
+	char nome[20];
 	tipo_aluno alunos[TAM_TURMA];
 	int total_al = 0;
 };
@@ -264,6 +264,42 @@ void cad_p2(tipo_turma *turma){
 }
 
 
+void cad_p1_p2(tipo_turma *turma){
+	char mat_pesq[7];
+	int achou = 0;
+	float p1, p2;
+	system("cls");
+	printf("\n\n**********************************************************");
+	printf("\n*                       CADASTRANDO P1 E P2              *");
+	printf("\n**********************************************************");
+	fflush(stdin);
+
+	printf("\n          Digite a matrícula: ");
+	gets(mat_pesq);
+
+	for(int i = 0 ; i < turma->total_al; i++){
+
+		if(!strcmpi(mat_pesq , turma->alunos[i].mat)){
+			printf("\n    DIGITE A NOTA P1: ");
+			scanf("%f", &p1);
+			turma->alunos[i].p1 = p1;
+
+			printf("\n    DIGITE A NOTA P2: ");
+			scanf("%f", &p2);
+			turma->alunos[i].p2 = p2;
+
+			printf("\n\n         NOTAS P1 E P2 CADASTRADAS COM SUCESSO !");
+			achou = 1;
+			break;
+		}
+	}
+
+	if(!achou)
+		printf("\n\n ALUNO COM MATRÍCULA %s NÃO ENCONTRADO!", mat_pesq)	;
+
+}
+
+
 void cadastrar_nota(tipo_turma *turma){
 	while(1){
 		system("cls");
@@ -290,7 +326,7 @@ void cadastrar_nota(tipo_turma *turma){
 		    			break;
 				case 2: cad_p2(turma);
 		    			break;
-				case 3: //cad_p1_p2(turma);
+				case 3: cad_p1_p2(turma);
 		    			break;
 
 		    	default: printf("Opção inválida");
