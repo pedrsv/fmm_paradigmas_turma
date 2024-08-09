@@ -393,34 +393,33 @@ void alterar_mat(tipo_turma *turma){
 
 }
 
-/*
-void pesq_sexo(tipo_turma *turma){
-	char sexo;
+void alterar_sexo(tipo_turma *turma){
+	char mat[7];
 	int achou = 0;
 	system("cls");
 	printf("\n\n**********************************************************");
-	printf("\n*                       PESQUISANDO PELO SEXO            *");
+	printf("\n*                      ALTERANDO SEXO                    *");
 	printf("\n**********************************************************");
 	fflush(stdin);
 
-	printf("\n          Digite o sexo para pesquisa: ");
-	sexo = getchar();
+	printf("\n          Digite a matrícula do aluno: ");
+	gets(mat);
 
 	for(int i = 0 ; i < turma->total_al; i++){
 
-		if(sexo == turma->alunos[i].sexo){
-			printf("\n    ALUNO ENCONTRADO NA %dª POSIÇÃO", i + 1);
-			mostrar_al(turma->alunos[i]);
+		if(!strcmpi(mat , turma->alunos[i].mat)){
+			printf("\n    Digite o novo sexo: ");
+			turma->alunos[i].sexo = getchar();
 			achou = 1;
+			printf("\n\n  SEXO ALTERADO COM SUCESSO!");
+			break;
 		}
 	}
 
 	if(!achou)
-		printf("\n\n ALUNO COM SEXO %c NÃO ENCONTRADO!", sexo);
-
+		printf("\n\n ALUNO %s NÃO ENCONTRADO!", mat);
 
 }
-*/
 
 void alterar(tipo_turma *turma){
 	while(1){
@@ -450,7 +449,7 @@ void alterar(tipo_turma *turma){
 		    			break;
 		    	case 2: alterar_mat(turma);
 		    			break;
-		    	case 3: //alterar_sexo(turma);
+		    	case 3: alterar_sexo(turma);
 		    			break;
 
 		    	default: printf("Opção inválida");
