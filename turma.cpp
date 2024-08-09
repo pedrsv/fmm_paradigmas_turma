@@ -365,33 +365,33 @@ void alterar_nome(tipo_turma *turma){
 
 }
 
-/*
-void pesq_mat(tipo_turma *turma){
-	char mat_pesq[50];
+void alterar_mat(tipo_turma *turma){
+	char mat[7];
 	int achou = 0;
 	system("cls");
 	printf("\n\n**********************************************************");
-	printf("\n*                       PESQUISANDO PELA MATRÍCULA       *");
+	printf("\n*                    ALTERANDO MATRÍCULA                 *");
 	printf("\n**********************************************************");
 	fflush(stdin);
 
-	printf("\n          Digite a matrícula para pesquisa: ");
-	gets(mat_pesq);
+	printf("\n          Digite a matrícula do aluno: ");
+	gets(mat);
 
 	for(int i = 0 ; i < turma->total_al; i++){
 
-		if(!strcmpi(mat_pesq , turma->alunos[i].mat)){
-			printf("\n    ALUNO ENCONTRADO NA %dª POSIÇÃO", i + 1);
-			mostrar_al(turma->alunos[i]);
+		if(!strcmpi(mat , turma->alunos[i].mat)){
+			printf("\n    Digite a nova matrícula: ");
+			gets(turma->alunos[i].mat);
 			achou = 1;
+			printf("\n\n  MATRÍCULA ALTERADA COM SUCESSO!");
+			break;
 		}
 	}
 
 	if(!achou)
-		printf("\n\n ALUNO COM MATRÍCULA %s NÃO ENCONTRADO!", mat_pesq);
+		printf("\n\n ALUNO %s NÃO ENCONTRADO!", mat);
 
 }
-*/
 
 /*
 void pesq_sexo(tipo_turma *turma){
@@ -448,7 +448,7 @@ void alterar(tipo_turma *turma){
 		    	case 0: return;
 				case 1: alterar_nome(turma);
 		    			break;
-		    	case 2: //alterar_mat(turma);
+		    	case 2: alterar_mat(turma);
 		    			break;
 		    	case 3: //alterar_sexo(turma);
 		    			break;
