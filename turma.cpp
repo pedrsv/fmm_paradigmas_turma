@@ -336,6 +336,133 @@ void cadastrar_nota(tipo_turma *turma){
 }
 
 
+// Funções para alterar dados do aluno - INÍCIO
+/*
+void pesq_nome(tipo_turma *turma){
+	char nome_pesq[50];
+	int achou = 0;
+	system("cls");
+	printf("\n\n**********************************************************");
+	printf("\n*                       PESQUISANDO PELO NOME            *");
+	printf("\n**********************************************************");
+	fflush(stdin);
+
+	printf("\n          Digite o nome para pesquisa: ");
+	gets(nome_pesq);
+
+	for(int i = 0 ; i < turma->total_al; i++){
+
+		if(!strcmpi(nome_pesq , turma->alunos[i].nome)){
+			printf("\n    ALUNO ENCONTRADO NA %dª POSIÇÃO", i + 1);
+			mostrar_al(turma->alunos[i]);
+			achou = 1;
+		}
+	}
+
+	if(!achou)
+		printf("\n\n ALUNO %s NÃO ENCONTRADO!", nome_pesq);
+
+
+}
+*/
+
+/*
+void pesq_mat(tipo_turma *turma){
+	char mat_pesq[50];
+	int achou = 0;
+	system("cls");
+	printf("\n\n**********************************************************");
+	printf("\n*                       PESQUISANDO PELA MATRÍCULA       *");
+	printf("\n**********************************************************");
+	fflush(stdin);
+
+	printf("\n          Digite a matrícula para pesquisa: ");
+	gets(mat_pesq);
+
+	for(int i = 0 ; i < turma->total_al; i++){
+
+		if(!strcmpi(mat_pesq , turma->alunos[i].mat)){
+			printf("\n    ALUNO ENCONTRADO NA %dª POSIÇÃO", i + 1);
+			mostrar_al(turma->alunos[i]);
+			achou = 1;
+		}
+	}
+
+	if(!achou)
+		printf("\n\n ALUNO COM MATRÍCULA %s NÃO ENCONTRADO!", mat_pesq);
+
+}
+*/
+
+/*
+void pesq_sexo(tipo_turma *turma){
+	char sexo;
+	int achou = 0;
+	system("cls");
+	printf("\n\n**********************************************************");
+	printf("\n*                       PESQUISANDO PELO SEXO            *");
+	printf("\n**********************************************************");
+	fflush(stdin);
+
+	printf("\n          Digite o sexo para pesquisa: ");
+	sexo = getchar();
+
+	for(int i = 0 ; i < turma->total_al; i++){
+
+		if(sexo == turma->alunos[i].sexo){
+			printf("\n    ALUNO ENCONTRADO NA %dª POSIÇÃO", i + 1);
+			mostrar_al(turma->alunos[i]);
+			achou = 1;
+		}
+	}
+
+	if(!achou)
+		printf("\n\n ALUNO COM SEXO %c NÃO ENCONTRADO!", sexo);
+
+
+}
+*/
+
+void alterar(tipo_turma *turma){
+	while(1){
+		system("cls");
+		printf("\n\n**********************************************************");
+		// verifica se está vazia
+		if(turma->total_al == 0 ){
+			printf("\n\n       IMPOSSÍVEL ALTERAR!  MOTIVO: A turma está vazia.");
+			return;
+		}
+		int op;
+
+		printf("\n\n          ==== MENU DE ALTERAÇÃO ====");
+		    printf("\n         [1] - Alterar nome: ");
+		    printf("\n         [2] - Alterar matrícula: ");
+		    printf("\n         [3] - Alterar sexo: ");
+		    printf("\n         [0] - Sair da pesquisa");
+
+		    printf("\n\n          Digite sua opção: ");
+		    //printf("\n\n**********************************************************");
+		   // gotoxy(29,11);
+		    scanf("%d", &op);
+
+		    switch(op){
+		    	case 0: return;
+				case 1: //alterar_nome(turma);
+		    			break;
+		    	case 2: //alterar_mat(turma);
+		    			break;
+		    	case 3: //alterar_sexo(turma);
+		    			break;
+
+		    	default: printf("Opção inválida");
+			}
+	//getch();
+	voltar();
+	}
+}
+// Funções para alterar dados do aluno - FIM
+
+
 int main() { 
     setlocale(LC_ALL, "");
     
@@ -380,7 +507,7 @@ int main() {
 	    			break;
 	    	case 4: cadastrar_nota(&turma);
 	    			break;		
-	    	case 5: //cadastrar(&turma);
+	    	case 5: alterar(&turma);
 	    			break;			
 	    	default: printf("Oção inválida");
 		}
