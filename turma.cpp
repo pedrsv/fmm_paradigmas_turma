@@ -337,34 +337,33 @@ void cadastrar_nota(tipo_turma *turma){
 
 
 // Funções para alterar dados do aluno - INÍCIO
-/*
-void pesq_nome(tipo_turma *turma){
-	char nome_pesq[50];
+void alterar_nome(tipo_turma *turma){
+	char mat[7];
 	int achou = 0;
 	system("cls");
 	printf("\n\n**********************************************************");
-	printf("\n*                       PESQUISANDO PELO NOME            *");
+	printf("\n*                       ALTERANDO NOME                   *");
 	printf("\n**********************************************************");
 	fflush(stdin);
 
-	printf("\n          Digite o nome para pesquisa: ");
-	gets(nome_pesq);
+	printf("\n          Digite a matrícula do aluno: ");
+	gets(mat);
 
 	for(int i = 0 ; i < turma->total_al; i++){
 
-		if(!strcmpi(nome_pesq , turma->alunos[i].nome)){
-			printf("\n    ALUNO ENCONTRADO NA %dª POSIÇÃO", i + 1);
-			mostrar_al(turma->alunos[i]);
+		if(!strcmpi(mat , turma->alunos[i].mat)){
+			printf("\n    Digite o novo nome: ");
+			gets(turma->alunos[i].nome);
 			achou = 1;
+			printf("\n\n  NOME ALTERADO COM SUCESSO!");
+			break;
 		}
 	}
 
 	if(!achou)
-		printf("\n\n ALUNO %s NÃO ENCONTRADO!", nome_pesq);
-
+		printf("\n\n ALUNO %s NÃO ENCONTRADO!", mat);
 
 }
-*/
 
 /*
 void pesq_mat(tipo_turma *turma){
@@ -447,7 +446,7 @@ void alterar(tipo_turma *turma){
 
 		    switch(op){
 		    	case 0: return;
-				case 1: //alterar_nome(turma);
+				case 1: alterar_nome(turma);
 		    			break;
 		    	case 2: //alterar_mat(turma);
 		    			break;
