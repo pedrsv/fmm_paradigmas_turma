@@ -28,7 +28,7 @@ void voltar(){
 }
 
 void cadastrar(tipo_turma *turma){	
-	// verifica se a turma está cheia:	
+	// verifica se a turma está cheia:
 	if(turma->total_al >= TAM_TURMA ){
 		printf("\n**********************************************************");		
 		printf("\n* IMPOSSÍVEL CADASTRAR!  MOTIVO: A turma está completa.  *");
@@ -43,7 +43,18 @@ void cadastrar(tipo_turma *turma){
 	printf("\n**********************************************************");
 	fflush(stdin);
 	printf("\n\n         Digite a matrícula do aluno: ");
-	gets(turma->alunos[turma->total_al].mat);
+	char mat[7];
+	gets(mat);
+	for(int i = 0; i < turma->total_al; i++){
+		if(!strcmp(mat, turma->alunos[i].mat)){
+			printf("\n**************************************************************************");
+			printf("\n* IMPOSSÍVEL CADASTRAR!  MOTIVO: Já existe um aluno com a matrícula %s.  *");
+			printf("\n**************************************************************************");
+			return;
+		}
+	}
+	strcpy(turma->alunos[turma->total_al].mat, mat);
+
 	fflush(stdin);
 	printf("\n         Digite o nome do aluno: ");
 	gets(turma->alunos[turma->total_al].nome);
