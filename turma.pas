@@ -35,7 +35,7 @@ begin
         begin
             {Reservado}
 
-            writeln ('**********************************************************");
+            writeln ('**********************************************************');
             writeln ('                  = TURMA  =', turma.nome);
 	        writeln ('                   ==== MENU ====');
 	        writeln ('                  [1] - Cadastrar aluno');
