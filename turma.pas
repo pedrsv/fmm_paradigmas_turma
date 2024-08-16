@@ -30,6 +30,7 @@ var
 
 begin
 
+    turma.total_al := 0;
     writeln ('******************************');
     writeln ('       INÍCIO DO PROGRAMA');
     writeln ('Digite o nome da turma:');
