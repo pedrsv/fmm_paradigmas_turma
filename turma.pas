@@ -15,7 +15,7 @@ tipo_aluno = record
 
 tipo_turma = record
     nome: array[1..20] of char;
-    alunos: array[1..TAM];
+    alunos: array[1..TAM] of tipo_aluno;
     total_al: integer;
     end;
 
