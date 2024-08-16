@@ -1,7 +1,7 @@
 program Hello;
 {This language is not case sensitive}
 
-const TAM 30;
+const TAM = 30;
 type
 tipo_aluno = record
     mat : array[1..7] of char;
