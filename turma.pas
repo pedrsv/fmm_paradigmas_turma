@@ -22,6 +22,32 @@ tipo_turma = record
     end;
 
 {a partir daqui serão declarados os procedimentos}
+procedure cadastrar(turma: tipo_ponteiro);
+var
+    sexo: char;
+begin
+    clrscr;
+    if (turma^.total_al = TAM) then
+        begin
+            writeln;
+            writeln('IMPOSSÍVEL CADASTRAR. Motivo: Turma cheia!');
+            writeln;
+        end
+    else
+        begin
+            turma^.total_al := turma^.total_al + 1;
+            writeln('******** CADASTRO DE ALUNO ********');
+            write('Digite a matrícula: ');
+            readln(turma^.alunos[turma^.total_al].mat);
+            write('Digite o nome: ');
+            readln(turma^.alunos[turma^.total_al].nome);
+            write('Digite o sexo: ');
+            readln(sexo); {armazena em variável separada}
+            turma^.alunos[turma^.total_al].sexo := upcase(sexo); {converte em maiúscula para padronizar}
+            writeln;writeln;
+            writeln('   ALUNO CADASTRADO COM SUCESSO !!!');
+        end;
+end;
 
 {Início do programa}
 var
@@ -53,6 +79,11 @@ begin
             writeln;writeln;
 	        writeln ('                   Digite sua opção: ');
             readln(op);
+
+            case (op) of
+                0: exit;
+                1: cadastrar(@turma);
+                end;
 
             readln;
         end;
