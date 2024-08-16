@@ -13,6 +13,7 @@ tipo_aluno = record
     end;
 
 {Reservado para declarar o ponteiro da turma}
+tipo_ponteiro = ^tipo_turma;
 
 tipo_turma = record
     nome: array[1..20] of char;
