@@ -1,4 +1,5 @@
 program Hello;
+uses crt;
 {This language is not case sensitive}
 
 const TAM = 30;
@@ -35,7 +36,7 @@ begin
 
     while(true) do
         begin
-            {Reservado}
+            clrscr;
 
             writeln ('**********************************************************');
             writeln ('                  = TURMA  =', turma.nome);
