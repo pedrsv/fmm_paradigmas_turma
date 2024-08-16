@@ -39,7 +39,7 @@ begin
             clrscr;
 
             writeln ('**********************************************************');
-            writeln ('                  = TURMA  =', turma.nome);
+            writeln ('                  = TURMA  = ', turma.nome);
 	        writeln ('                   ==== MENU ====');
 	        writeln ('                  [1] - Cadastrar aluno');
 	        writeln ('                  [2] - Listar turma');
