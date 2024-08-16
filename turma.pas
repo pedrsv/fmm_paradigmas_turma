@@ -19,11 +19,13 @@ tipo_turma = record
     total_al: integer;
     end;
 
+{a partir daqui serão declarados os procedimentos}
+
+{Início do programa}
 var
     turma: tipo_turma;
     op: integer;
 
-{Início do programa}
 begin
 
     writeln ('******************************');
