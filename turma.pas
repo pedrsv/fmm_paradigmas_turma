@@ -52,5 +52,7 @@ begin
             writeln;writeln;
 	        writeln ('                   Digite sua opção: ');
             readln(op);
+
+            readln;
         end;
 end.
