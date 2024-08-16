@@ -6,7 +6,7 @@ type
 tipo_aluno = record
     mat : array[1..7] of char;
     nome: array[1..50] of char;
-    sexo: chat;
+    sexo: char;
     p1: float;
     p2: float;
     end;
