@@ -30,13 +30,20 @@ begin
     if (turma^.total_al = TAM) then
         begin
             writeln;
-            writeln('IMPOSSÍVEL CADASTRAR. Motivo: Turma cheia!');
+            writeln('* IMPOSSÍVEL CADASTRAR! Motivo: A turma está completa!');
+            writeln('* PRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU.          *');
             writeln;
         end
     else
         begin
+        	clrscr; { limpa a tela } 
+        	writeln(); writeln();
+        	writeln('**********************************************************');		
+        	writeln('*                       MATRICULANDO ALUNO               *');	
+        	writeln('**********************************************************');
+
             turma^.total_al := turma^.total_al + 1;
-            writeln('******** CADASTRO DE ALUNO ********');
+            
             write('Digite a matrícula: ');
             readln(turma^.alunos[turma^.total_al].mat);
             write('Digite o nome: ');
