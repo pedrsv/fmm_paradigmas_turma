@@ -84,7 +84,7 @@ begin
 	        writeln ('                  [0] - Sair');
 	        writeln ('**********************************************************');
             writeln;writeln;
-	        writeln ('                   Digite sua opção: ');
+	        write('                   Digite sua opção: ');
             readln(op);
 
             case (op) of
