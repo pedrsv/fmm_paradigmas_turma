@@ -43,7 +43,7 @@ begin
         	writeln('**********************************************************');
 
             turma^.total_al := turma^.total_al + 1;
-            
+
             write('Digite a matrícula: ');
             readln(turma^.alunos[turma^.total_al].mat);
             write('Digite o nome: ');
@@ -53,6 +53,28 @@ begin
             turma^.alunos[turma^.total_al].sexo := upcase(sexo); {converte em maiúscula para padronizar}
             writeln;writeln;
             writeln('   ALUNO CADASTRADO COM SUCESSO !!!');
+        end;
+end;
+
+procedure listar(turma: tipo_ponteiro);
+var
+    sexo: char;
+begin
+    clrscr;
+    if (turma^.total_al = TAM) then
+        begin
+            writeln;
+            writeln('* IMPOSSÍVEL LISTAR! Motivo: A turma está vazia.');
+            writeln('* PRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU.          *');
+            writeln;
+        end
+    else
+        begin
+        	clrscr; { limpa a tela } 
+        	writeln(); writeln();
+        	writeln('**********************************************************');		
+        	writeln('*                       LISTA DE ALUNOS                  *');	
+        	writeln('**********************************************************');
         end;
 end;
 
@@ -88,9 +110,13 @@ begin
             readln(op);
 
             case (op) of
-                0: exit;
                 1: cadastrar(@turma);
-                end;
+                2: listar(@turma);
+                3: writeln(' pesquisar(@turma);');
+                4: writeln(' Cadastrar nota');
+                5: writeln(' Alterar dados');
+                0: Exit;
+            end;
 
             readln;
         end;
